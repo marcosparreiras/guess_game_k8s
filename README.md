@@ -15,7 +15,7 @@ kubectl apply -f backend-svc.yaml
 kubectl apply -f frontend-deployment.yaml
 ```
 
-Acesse a aplicação no `localhost:3000`
+Acesse a aplicação no `localhost:30300`
 
 ## Instruções para limpar o embiente
 
