@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: marcosparreiras/guess_game_backend:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: FLASK_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: db-password
+            - name: FLASK_DB_HOST
+              value: db
